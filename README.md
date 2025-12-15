@@ -9,13 +9,6 @@ This is a small learning project that demonstrates how to build a REST-style web
 - How to render HTML using EJS templates
 - How to submit HTML forms and parse form data on the server
 - How to simulate HTTP methods (PATCH, DELETE) in HTML forms using `method-override`
-
----
-
-## Prerequisites
-- Node.js (use the latest LTS version) — https://nodejs.org/
-- Basic JavaScript and HTML knowledge will help.
-
 ---
 
 ## Install
@@ -81,26 +74,7 @@ Note: HTML forms only support `GET` and `POST`. This app uses the `method-overri
 
 ---
 
-## Important notes for beginners
+## Important note
 - Data is stored in memory (the `posts` array). When you stop the server, all posts are lost. To persist data, you can add a database (for example, MongoDB with Mongoose).
-- Errors are not handled in detail in this simple example. Consider adding validation and error pages as your next step.
 
 ---
-
-## Tips for making changes
-- To add a new field to posts (for example, `title`):
-  1. Add the field to forms in `new.ejs` and `edit.ejs` (add `name="title"`).
-  2. Read it from `req.body.title` in `index.js` where posts are created or updated.
-  3. Update templates to display the new field.
-
----
-
-## Next steps (ideas to try)
-- Wire up a database (MongoDB) and replace the memory array with real persistence.
-- Add input validation so users can't submit empty posts.
-- Add user authentication so only the post author can edit/delete their posts.
-- Write tests for the routes using a test framework (Jest, Mocha)
-
----
-
-If you want, I can help you take any of the next steps above — tell me which one you'd like and I'll add a plan and implementation.

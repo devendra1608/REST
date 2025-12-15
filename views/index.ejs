@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All posts</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!--
+    This view shows all posts passed from the server (from `posts` variable).
+    It's a simple list where each post shows username and content.
+    The links below point to the SHOW and EDIT routes for each post.
+    The Delete button sends a POST form with `?_method=DELETE` so the
+    `method-override` middleware will treat it as an HTTP DELETE request.
+  -->
+  <h1>Quora Posts</h1>
+  <% for(post of posts) { %>
+      <div class="post">
+          <h3 class="user">@<%= post.username %></h3>
+          <h4 class="content"><%= post.content %></h4>
+          <br>
+          <!-- Link to the SHOW page for this post -->
+          <a href="http://localhost:3000/posts/<%=post.id%>">see in detail</a>
+          <!-- Link to the EDIT form for this post -->
+          <a href="http://localhost:3000/posts/<%=post.id%>/edit">Edit</a>
+          <!-- HTML forms only support GET and POST, so we use method-override
+               to simulate a DELETE request by adding `?_method=DELETE` to the action -->
+          <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+            <button>Delete Post</button>
+          </form>
+          
+      </div>
+  <%} %>
+  <br>
+  <br>
+  <a href="http://localhost:3000/posts/new">Create New Post</a>
+</body>
+</html>

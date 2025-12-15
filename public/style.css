@@ -1,0 +1,12 @@
+/* Simple stylesheet served from /style.css (public folder). */
+h1 {
+  color : maroon
+}
+
+.post {
+  background-color: blanchedalmond;
+}
+
+.user {
+  font-style: italic;
+}
